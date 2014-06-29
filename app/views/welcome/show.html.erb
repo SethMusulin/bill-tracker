@@ -1,0 +1,22 @@
+<div class="bill_search">
+  <%= form_tag("/", method: "get") do %>
+      <%= label_tag(:state, "State Abbreviation") %>
+      <%= text_field_tag(:state, nil, placeholder: "CO") %>
+      <%= label_tag(:bill, "Bill Number") %>
+      <%= text_field_tag(:bill, nil, placeholder: "HB1030") %>
+      <%= submit_tag "Search"  %>
+      <hr>
+  <% end %>
+  <% if @bill_results %>
+      <% if @bill_results["status"] == "ERROR" %>
+          <div class="errors" style="font-size: 20px; color:red"> There was an error with your search, please try again
+          </div>
+      <% else %>
+
+          <%= render "results" %>
+
+          </div>
+      <% end %>
+  <% end %>
+</div>
+</div>

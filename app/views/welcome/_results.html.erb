@@ -1,0 +1,58 @@
+<div class="results_container">
+
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Bill Title</h3>
+          </div>
+          <div class="panel-body">
+            <p><h5><%= @bill_results["bill"]["bill_number"] %>&nbsp &nbsp<%= @bill_results["bill"]["title"] %></h5></p>
+            <%= @bill_results["bill"]["state"] %> &nbsp;<%= @bill_results["bill"]["session"]["session_name"] %>
+            &nbsp;
+            <a href="<%= @bill_results["bill"]["state_link"] %>" target="_blank">Bill Text</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Most Recent Action </h3>
+          </div>
+          <div class="panel-body">
+            <%= @bill_results["bill"]["history"].last["action"] %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Sponsors</h3>
+          </div>
+          <div class="panel-body">
+            <% @bill_results["bill"]["sponsors"].map do |sponsor| %>
+                <p><%= sponsor["name"] %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              History</h3>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+          </div>
+          <div class="panel-body">
+            <% @bill_results["bill"]["history"].map do |event| %>
+                <div class="well well-sm"><%= event["date"] %>:  <%= event["action"] %></div>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+      </div>
+  </div>

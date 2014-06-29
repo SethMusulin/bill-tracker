@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Ruby on Rails Starter Application</TITLE>
+	</HEAD>
+ 
+	<BODY>
+	
+		<h1>Welcome to Bluemix!</h1>
+		<h2>Your ip: <%= @yourip%>.This application is powered by Ruby <%= @ruby_version%> on Rails <%= @rails_version%>.</h2>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th class="env-var">Name</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<% @env.each do |key, value| %>
+				<tr>
+					<td class="env-var"><%= key%></td>
+					<td><pre><%= value%></pre></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+		
+	</BODY>
+</HTML>
