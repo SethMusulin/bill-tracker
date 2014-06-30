@@ -1,10 +1,24 @@
+<div class="intro">
+  <div class="logo">
+    bill tracker
+    <hr>
+  </div>
+  <p>Welcome to Bill Tracker. </p>
+
+  Simply enter the State's Abbreviation and Bill Number below and press Search to track legislation that is important to
+  you.
+  <hr>
+</div>
+
 <div class="bill_search">
   <%= form_tag("/", method: "get") do %>
       <%= label_tag(:state, "State Abbreviation") %>
       <%= text_field_tag(:state, nil, placeholder: "CO") %>
       <%= label_tag(:bill, "Bill Number") %>
       <%= text_field_tag(:bill, nil, placeholder: "HB1030") %>
-      <%= submit_tag "Search"  %>
+      <%= submit_tag "Search" %>
+      &nbsp
+      <a class="btn btn-small btn-primary" href="/">Reset</a>
       <hr>
   <% end %>
   <% if @bill_results %>
@@ -18,5 +32,5 @@
           </div>
       <% end %>
   <% end %>
-</div>
-</div>
+  </div>
+  </div>

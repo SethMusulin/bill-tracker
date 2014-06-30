@@ -10,5 +10,3 @@ class LegiScanApi
     JSON.parse(response.body)
   end
 end
-
-#("http://api.legiscan.com/?key=#{@token}&op=getBill&state=#{state}&bill=#{bill}")
