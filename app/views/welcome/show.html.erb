@@ -11,16 +11,27 @@
 </div>
 
 <div class="bill_search">
-  <%= form_tag("/", method: "get") do %>
-      <%= label_tag(:state, "State Abbreviation") %>
-      <%= text_field_tag(:state, nil, placeholder: "CO") %>
-      <%= label_tag(:bill, "Bill Number") %>
-      <%= text_field_tag(:bill, nil, placeholder: "HB1030") %>
-      <%= submit_tag "Search" %>
-      &nbsp
-      <a class="btn btn-small btn-primary" href="/">Reset</a>
-      <hr>
-  <% end %>
+  <div class="search_form_container">
+    <%= form_tag({:controller => :welcome, :action => :show}) do %>
+        <div class="form-group">
+          <%= label_tag :state, nil, class: "control-label" %>
+          <div class="controls">
+            <%= text_field_tag :state, nil, class: "form-control", placeholder: "CO" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= label_tag :bill, nil, class: "control-label" %>
+          <div class="">
+            <%= text_field_tag :bill, nil, class: "form-control", placeholder: "HB1030" %>
+          </div>
+        </div>
+        <div class="">
+          <%= submit_tag 'Search', :id => 'search_submit' %> &nbsp;  <a class="btn btn-small btn-primary" href="/">Reset</a>
+        </div>
+    <% end %>
+  </div>
+  <hr>
+
   <% if @bill_results %>
       <% if @bill_results["status"] == "ERROR" %>
           <div class="errors" style="font-size: 20px; color:red"> There was an error with your search, please try again
