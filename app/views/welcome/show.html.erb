@@ -7,16 +7,17 @@
 
   Simply enter the State's Abbreviation and Bill Number below and press Search to track legislation that is important to
   you.
+
   <hr>
 </div>
-
+<div class="small_text"> Please note that, for now, the engine only accepts searches for the current legislative session.<div>
 <div class="bill_search">
   <div class="search_form_container">
     <%= form_tag({:controller => :welcome, :action => :show}) do %>
         <div class="form-group">
           <%= label_tag :state, nil, class: "control-label" %>
           <div class="controls">
-            <%= text_field_tag :state, nil, class: "form-control", placeholder: "CO" %>
+            <%= text_field_tag :state, nil, class: "form-control", autofocus: true, placeholder: "CO" %>
           </div>
         </div>
         <div class="form-group">

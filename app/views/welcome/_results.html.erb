@@ -46,7 +46,7 @@
           History</h3>
       </div>
       <div class="panel-body">
-        <% @bill_results["bill"]["history"].map do |event| %>
+        <% @bill_results["bill"]["history"].reverse_each.map do |event| %>
             <p>
 
             <div class="well well-sm"><%= event["date"] %>:  <%= event["action"] %></div>
