@@ -20,7 +20,7 @@ class LegiScanApi
 
 
   private
-  
+
   def state_and_bill_search
     response = Faraday.get("http://api.legiscan.com/?key=#{@token}&op=getBill&state=#{@state}&bill=#{@bill}")
     JSON.parse(response.body)
