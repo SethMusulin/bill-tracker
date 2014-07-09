@@ -22,6 +22,8 @@ end
 gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
+  gem 'vcr', '~> 2.9.2'
+  gem 'webmock', '~> 1.18.0'
   end
 
 # To use ActiveModel has_secure_password

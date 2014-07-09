@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.6)
     arel (3.0.3)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -37,6 +38,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
@@ -98,6 +101,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    safe_yaml (1.0.3)
     sass (3.2.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -117,6 +121,10 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    vcr (2.9.2)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -131,3 +139,5 @@ DEPENDENCIES
   rspec-rails (~> 2.14.2)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  vcr (~> 2.9.2)
+  webmock (~> 1.18.0)
