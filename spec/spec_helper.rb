@@ -7,7 +7,10 @@ require 'vcr'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  c.hook_into :webmock # or :fakeweb
+  c.hook_into :webmock
+
+  c.filter_sensitive_data('<LEGISCAN>') {ENV['LEGISCAN']}
+
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
