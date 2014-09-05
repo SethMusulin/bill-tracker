@@ -63,6 +63,7 @@ GEM
     mime-types (1.25.1)
     multi_json (1.8.4)
     multipart-post (2.0.0)
+    newrelic_rpm (3.8.0.218)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -135,6 +136,7 @@ DEPENDENCIES
   dotenv-rails (~> 0.11.1)
   faraday (~> 0.9.0)
   jquery-rails
+  newrelic_rpm
   rails (= 3.2.13)
   rspec-rails (~> 2.14.2)
   sass-rails (~> 3.2.3)
