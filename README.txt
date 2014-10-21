@@ -7,5 +7,5 @@ Tech: Ruby on Rails, PostgreSQL, JavaScript, RSepc, Capybara, LegiscanAPI.
 
 
 
-### link
+
 * Production URL - [http://bill-tracker.herokuapp.com/](http://bill-tracker.herokuapp.com/)
