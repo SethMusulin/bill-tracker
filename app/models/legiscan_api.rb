@@ -22,15 +22,15 @@ class LegiScanApi
   private
 
   def state_and_bill_search
-    response = Faraday.get("http://api.legiscan.com/?key=#{@token}&op=getBill&state=#{@state}&bill=#{@bill}")
+    response = Faraday.get("https://api.legiscan.com/?bill=#{@bill}&key=#{@token}&op=getBill&state=#{@state}")
     JSON.parse(response.body)
   end
 
   def session_and_master_list_search
-    response = Faraday.get("http://api.legiscan.com/?key=2577f3697e3597ca2363909f55f143c8&op=getSessionList&state=#{@state}")
+    response = Faraday.get("https://api.legiscan.com/?key=#{@token}&op=getSessionList&state=#{@state}")
     body = JSON.parse(response.body)
     sesh = body["sessions"].select { |session| session["name"].include?(@year) }
-    response2= Faraday.get("http://api.legiscan.com/?key=#{@token}&op=getMasterList&id=#{sesh[0]["session_id"]}")
+    response2= Faraday.get("https://api.legiscan.com/?id=#{sesh[0]["session_id"]}&key=#{@token}&op=getMasterList")
     JSON.parse(response2.body)
   end
 
@@ -43,7 +43,7 @@ class LegiScanApi
         end
       end
     end
-    response3 = Faraday.get("http://api.legiscan.com/?key=#{@token}&op=getBill&id=#{bill_id}")
+    response3 = Faraday.get("https://api.legiscan.com/?id=#{bill_id}&key=#{@token}&op=getBill")
     JSON.parse(response3.body)
   end
 
