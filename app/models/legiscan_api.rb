@@ -9,13 +9,22 @@ class LegiScanApi
   end
 
 
+
   def retrieve_bill_info
-    if @year ==Time.now.year
-      state_and_bill_search
+    states = ["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"]
+    results = {}
+    if !states.include?(@state)
+      results['status'] = 'ERROR'
+      return results
     else
-      body = session_and_master_list_search
-      find_bill_id(body)
+      if @year ==Time.now.year
+       results = state_and_bill_search
+      else
+        body = session_and_master_list_search
+        results = find_bill_id(body)
+      end
     end
+    results
   end
 
 
@@ -23,7 +32,7 @@ class LegiScanApi
 
   def state_and_bill_search
     response = Faraday.get("https://api.legiscan.com/?bill=#{@bill}&key=#{@token}&op=getBill&state=#{@state}")
-    JSON.parse(response.body)
+    results = JSON.parse(response.body)
   end
 
   def session_and_master_list_search
