@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function () {
+  $('html, body').animate({
+    scrollTop: $("#results_container").offset().top
+  }, 1000);
+  });
